@@ -1,0 +1,18 @@
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali_container
+    volumes:
+      - kali_data:/root  # Volume persistente para salvar dados no diretório /root do container
+    tty: true
+    stdin_open: true
+    command: /bin/bash  # Abre um terminal Bash como entrada padrão
+    networks:
+      - kali_network
+
+volumes:
+  kali_data:  # Volume nomeado para persistência de dados
+
+networks:
+  kali_network:
+    driver: bridge
